@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import IconArrow from '../components/IconArrow.astro';
 const colours = [
   { token: '--color-bg', hex: '#F5F1E8', name: 'Warm paper', use: 'Primary background', class: 'bg' },
   { token: '--color-text', hex: '#18211D', name: 'Deep charcoal', use: 'Text and structure', class: 'text' },
@@ -28,7 +29,7 @@ const colours = [
     <div class="guide-heading"><p class="eyebrow">Typography</p><h2>A voice with feeling,<br />held by clarity.</h2><p>Display type carries the editorial voice; body type protects clarity. The scale uses contrast, rhythm and spacing to help employers scan project information quickly without losing the personality of the portfolio.</p></div>
     <div class="type-board">
       <div class="type-specimen-main"><span>Display · Instrument Serif</span><p class="type-display">Things made<br /><em>& managed.</em></p><p class="type-body">Large serif moments create hierarchy and character. They are reserved for page titles, project names and conceptual statements, so the portfolio feels expressive without making every element shout.</p></div>
-      <div class="type-specimen-notes"><span>Body · Inter</span><p>Inter handles the practical work: reading, navigation, labels and controls. Body copy stays generous in size and line height, metadata stays clear enough to scan, and interactive text keeps enough contrast to remain legible across devices.</p><ul class="type-principles"><li>Hierarchy guides attention before decoration.</li><li>Consistent scale helps visitors recognise patterns quickly.</li><li>Metadata supports scanning, but never becomes unreadable.</li><li>Focus, contrast and spacing protect usability on small screens.</li></ul><button class="guide-button">Button / link ↗</button></div>
+      <div class="type-specimen-notes"><span>Body · Inter</span><p>Inter handles the practical work: reading, navigation, labels and controls. Body copy stays generous in size and line height, metadata stays clear enough to scan, and interactive text keeps enough contrast to remain legible across devices.</p><ul class="type-principles"><li>Hierarchy guides attention before decoration.</li><li>Consistent scale helps visitors recognise patterns quickly.</li><li>Metadata supports scanning, but never becomes unreadable.</li><li>Focus, contrast and spacing protect usability on small screens.</li></ul><button class="guide-button">Button / link <IconArrow /></button></div>
     </div>
   </section>
 
@@ -46,7 +47,7 @@ const colours = [
       <article class="guide-controls"><span>Filter states</span><button class="guide-filter active"><i></i>Active</button><button class="guide-filter"><i></i>Default</button><mark>Badge label</mark></article>
       <article class="guide-highlight"><span>01</span><h3>Highlight card</h3><p>Qualitative decisions and outcomes without invented metrics.</p></article>
       <article class="guide-pdf"><span>PDF summary</span><h3>Project in brief</h3><p>One approved content source, reused carefully.</p></article>
-      <a class="guide-external" href="/work/">Project path <b>↗</b></a>
+      <a class="guide-external" href="/work/">Project path <b><IconArrow /></b></a>
       <article class="guide-drawer"><span>Drawer navigation</span><div><i></i><i></i><i></i><b>Menu panel</b></div><p>Left-side navigation with focus trap, Escape and overlay dismissal.</p></article>
       <article class="guide-capability"><span>Capability card</span><h3>Production / Delivery</h3><p>Grouped strengths with clear, factual labels.</p></article>
       <article class="guide-timeline"><span>Timeline card</span><div><i>01</i><p><strong>Experience role</strong><small>Dates · organisation</small></p></div></article>
@@ -56,5 +57,9 @@ const colours = [
   <section class="guide-section page-pad">
     <div class="guide-heading"><p class="eyebrow">In use</p><h2>One identity,<br />across every format.</h2><p>The system grows quieter or brighter according to the content it supports.</p></div>
     <div class="guide-story-grid"><article><span>Portfolio wall</span><p>Consistent image-led cards keep attention on the work. Colour appears only as a small navigational spark.</p></article><article><span>Sticky filter</span><p>A miniature sun keeps disciplines within reach, carrying the same dots, rays and multi-cue active states.</p></article><article><span>Project pages</span><p>Rays and halftone soften around case studies so images and evidence remain the clearest voice.</p></article><article><span>PDF pages</span><p>The identity becomes print-light: restrained colour, clean page breaks and enough texture to remain recognisable.</p></article></div>
+  </section>
+
+  <section class="guide-section page-pad">
+    <div class="guide-heading"><p class="eyebrow">Icon rule</p><h2>SVG arrows,<br />not text glyphs.</h2><p>Use SVG icons instead of Unicode arrow symbols for UI controls, because mobile browsers may render arrow characters as emoji-style glyphs.</p></div>
   </section>
 </BaseLayout>

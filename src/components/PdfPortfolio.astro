@@ -1,7 +1,9 @@
 ---
+import IconArrow from './IconArrow.astro';
+
 const { title, subtitle, projects } = Astro.props;
 ---
-<div class="pdf-toolbar no-print"><a href="/pdf/">← PDF index</a><button onclick="window.print()">Print / Save PDF</button></div>
+<div class="pdf-toolbar no-print"><a href="/pdf/"><IconArrow direction="left" /> PDF index</a><button onclick="window.print()">Print / Save PDF</button></div>
 <article class="pdf-document">
   <section class="pdf-cover pdf-sheet"><div><p class="eyebrow">Selected portfolio · 2026</p><h1>{title}</h1><p class="pdf-lede">{subtitle}</p></div><div class="pdf-cover-bottom"><strong>Yat Tin Lee</strong><span>Multidisciplinary Designer</span><span>Hong Kong · Sydney</span></div></section>
   <section class="pdf-sheet pdf-intro"><p class="eyebrow">Profile</p><h2>Designing across products, systems and experiences.</h2><p>Yat Tin Lee is a multidisciplinary designer based between Hong Kong and Sydney, with five years of industrial design experience and four years of project management experience, now expanding into UI/UX and research.</p><div class="pdf-contact"><span>yattin.lee@student.uts.edu.au<br />mrsundaylee@gmail.com<br />(+61) 422 176 467</span><span>Hong Kong · Sydney</span></div></section>

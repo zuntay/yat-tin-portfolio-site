@@ -96,6 +96,10 @@ Halftone is a reusable print-inspired identity texture built with CSS radial gra
 - Current navigation uses weight plus a coral underline, not colour alone.
 - Mobile retains the compact drawer trigger and the established bottom navigation.
 
+## Icons
+
+Use `src/components/IconArrow.astro` for UI/action arrows instead of Unicode arrow symbols. Mobile browsers may render arrow characters as emoji-style glyphs, so links, project cards, drawer items, buttons and printable controls should use SVG icons that inherit `currentColor`.
+
 ## Resume components
 
 - Capability cards group design, production/delivery, tools, and languages.

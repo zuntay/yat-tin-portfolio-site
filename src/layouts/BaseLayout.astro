@@ -1,4 +1,5 @@
 ---
+import IconArrow from '../components/IconArrow.astro';
 import '../styles/global.css';
 interface Props { title?: string; description?: string; print?: boolean; }
 const { title = 'Yat Tin Lee — Multidisciplinary Designer', description = 'Portfolio of Yat Tin Lee, a multidisciplinary designer based between Hong Kong and Sydney.', print = false } = Astro.props;
@@ -27,7 +28,7 @@ const mobileNav = nav.slice(0, 4).concat([nav[6]]);
     <aside class="nav-drawer no-print" id="nav-drawer" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Site navigation" inert>
       <div class="drawer-top"><a class="wordmark" href="/">YTL<span class="dot">.</span></a><button class="drawer-close" type="button" aria-label="Close navigation">Close <span>×</span></button></div>
       <nav aria-label="Primary navigation">
-        {nav.map(([label, href], index) => <a class:list={{ active: path.startsWith(href.split('#')[0]) }} href={href}><span>{String(index + 1).padStart(2, '0')}</span>{label}<b>↗</b></a>)}
+        {nav.map(([label, href], index) => <a class:list={{ active: path.startsWith(href.split('#')[0]) }} href={href}><span>{String(index + 1).padStart(2, '0')}</span>{label}<b><IconArrow /></b></a>)}
       </nav>
       <div class="drawer-note"><span>Hong Kong ↔ Sydney</span><p>Multidisciplinary design across products, experiences and delivery.</p></div>
     </aside>

@@ -1,5 +1,6 @@
 ---
 import BaseLayout from '../layouts/BaseLayout.astro';
+import IconArrow from '../components/IconArrow.astro';
 const links = [
   { label: 'UTS email', note: 'yattin.lee@student.uts.edu.au', href: 'mailto:yattin.lee@student.uts.edu.au' },
   { label: 'Personal email', note: 'mrsundaylee@gmail.com', href: 'mailto:mrsundaylee@gmail.com' },
@@ -9,4 +10,4 @@ const links = [
   { label: 'Behance', note: 'Portfolio link to be added', href: '#' },
 ];
 ---
-<BaseLayout title="Links — Yat Tin Lee"><header class="page-intro page-pad"><p class="eyebrow">Links</p><h1>Find me<br /><em>around the web.</em></h1></header><section class="link-list page-pad">{links.map((link, i) => <a href={link.href} class:list={{ disabled: link.href === '#' }}><span>{String(i + 1).padStart(2, '0')}</span><div><h2>{link.label}</h2><p>{link.note}</p></div><b>↗</b></a>)}</section></BaseLayout>
+<BaseLayout title="Links — Yat Tin Lee"><header class="page-intro page-pad"><p class="eyebrow">Links</p><h1>Find me<br /><em>around the web.</em></h1></header><section class="link-list page-pad">{links.map((link, i) => <a href={link.href} class:list={{ disabled: link.href === '#' }}><span>{String(i + 1).padStart(2, '0')}</span><div><h2>{link.label}</h2><p>{link.note}</p></div><b><IconArrow /></b></a>)}</section></BaseLayout>

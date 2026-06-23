@@ -161,6 +161,11 @@ Useful instruction:
 Do not rebuild the site. Keep Astro structure, routing, project data, PDF pages and project pages.
 ```
 
+Icon maintenance rule:
+
+- Use `src/components/IconArrow.astro` for UI/action arrows.
+- Do not use Unicode arrow symbols in links, cards, drawer items or buttons. Mobile browsers may render arrow characters as emoji-style glyphs.
+
 ### Update Images
 
 Rules:
@@ -358,4 +363,3 @@ Pricing and limits were checked around June 2026, but services change. Before pa
 - Vercel Pricing
 - Vercel Limits
 - Astro Deployment Docs
-

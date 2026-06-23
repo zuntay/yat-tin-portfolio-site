@@ -1,4 +1,6 @@
 ---
+import IconArrow from './IconArrow.astro';
+
 const { sections } = Astro.props;
 ---
 <div class="case-sections">
@@ -7,7 +9,7 @@ const { sections } = Astro.props;
     if (section.type === 'highlights') return <section class="case-section"><div class="section-heading"><p class="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2></div><div class="highlight-grid">{section.items?.map((item, i) => <article><span>{String(i + 1).padStart(2, '0')}</span><h3>{item.title}</h3><p>{item.text}</p></article>)}</div></section>;
     if (section.type === 'gallery') return <section class="case-section content-block"><p class="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2><p>{section.body}</p><p class="content-caption">Visual sequence · {section.images?.length || 0} selected images</p></section>;
     if (section.type === 'quote') return <blockquote class="case-quote"><p>{section.body}</p>{section.title && <cite>{section.title}</cite>}</blockquote>;
-    if (section.type === 'links') return <section class="case-section link-block"><h2>{section.title}</h2>{section.links?.map((link) => <a href={link.href}>{link.label} ↗</a>)}</section>;
+    if (section.type === 'links') return <section class="case-section link-block"><h2>{section.title}</h2>{section.links?.map((link) => <a href={link.href}>{link.label} <IconArrow /></a>)}</section>;
     if (section.type === 'pdf-summary') return <aside class="pdf-summary"><p class="eyebrow">PDF summary</p><h2>{section.title}</h2><p>{section.body}</p></aside>;
     return <section class="case-section content-block"><p class="eyebrow">{section.eyebrow}</p><h2>{section.title}</h2><p>{section.body}</p></section>;
   })}

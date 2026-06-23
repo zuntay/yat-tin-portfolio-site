@@ -1,4 +1,6 @@
 ---
+import IconArrow from './IconArrow.astro';
+
 const { project, index = 0 } = Astro.props;
 const { data } = project;
 ---
@@ -14,7 +16,7 @@ const { data } = project;
     </div>
     <div class="card-copy">
       <div><h3>{data.title}</h3><p>{data.summary}</p></div>
-      <span class="round-arrow" aria-hidden="true">↗</span>
+      <span class="round-arrow" aria-hidden="true"><IconArrow /></span>
     </div>
     <ul class="tag-list" aria-label="Project tags">{data.tags.slice(0, 3).map((tag) => <li>{tag}</li>)}</ul>
   </a>
