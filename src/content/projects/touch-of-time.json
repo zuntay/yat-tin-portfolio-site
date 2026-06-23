@@ -1,0 +1,33 @@
+{
+  "title": "Touch of Time",
+  "order": 1,
+  "summary": "A desk-based productivity object that turns the familiar analog clock face into a tactile, low-friction timer.",
+  "year": "2026",
+  "status": "Concept / award submission project",
+  "projectType": "Product / Industrial Design · Interaction Design",
+  "role": "Concept development, product design, interaction design, design storytelling and visual presentation",
+  "tags": ["Product Design", "Industrial Design", "Interaction Design", "Award / Competition", "Individual Project", "Visual Storytelling"],
+  "thumbnail": "/images/projects/touch-of-time/touch-of-time-02.jpg",
+  "hero": "/images/projects/touch-of-time/touch-of-time-01.jpg",
+  "placeholder": false,
+  "featured": true,
+  "badge": { "label": "Good Design Award submission" },
+  "externalLinks": [],
+  "pdf": ["product", "ux-ui"],
+  "sections": [
+    { "type": "text", "eyebrow": "Concept overview", "title": "Reframing the alarm clock for the desk", "body": "Touch of Time started by questioning the long-used definition of an alarm clock. Rather than treating the clock only as a bedside wake-up device, the concept responds to small tasks, rough deadlines and timeboxing moments throughout a work or study day." },
+    { "type": "split", "eyebrow": "Interaction logic", "title": "The clock face becomes the interface", "body": "Hour markings act as tactile timer buttons. A user can set a rough target such as ‘finish by 2:10’ without unlocking a phone, scrolling through numbers or calculating a countdown duration. Selected buttons illuminate to give immediate visual feedback.", "image": "/images/projects/touch-of-time/touch-of-time-03.jpg", "imageAlt": "Touch of Time clock-face interaction concept", "caption": "A familiar visual language carries a new physical interaction." },
+    { "type": "highlights", "eyebrow": "Design decisions", "title": "Low friction by design", "items": [
+      { "title": "Familiar surface", "text": "The analog face remains readable while becoming the main control surface." },
+      { "title": "Natural time setting", "text": "Task timing follows how people refer to points in the day, rather than requiring exact countdown maths." },
+      { "title": "Desk first", "text": "The object supports quick planning without introducing phone-based distraction." }
+    ] },
+    { "type": "split", "eyebrow": "Product detail", "title": "Form and behaviour work together", "body": "The interaction is placed on the front of the product instead of hiding controls on the back. Button placement, tactile input and illuminated feedback connect the product’s physical form with its timing behaviour.", "image": "/images/projects/touch-of-time/touch-of-time-04.jpg", "imageAlt": "Touch of Time product detail", "caption": "Physical controls are integrated into the face." },
+    { "type": "gallery", "eyebrow": "Final outcome", "title": "A clock series for modern work routines", "body": "The final concept combines traditional clock reading with tactile timer-setting interaction, adapting a familiar object to fragmented desk-based tasks.", "images": [
+      { "src": "/images/projects/touch-of-time/touch-of-time-05.jpg", "alt": "Final Touch of Time desk clock concept" },
+      { "src": "/images/projects/touch-of-time/touch-of-time-02.jpg", "alt": "Touch of Time product family" }
+    ] },
+    { "type": "text", "eyebrow": "Reflection", "title": "Beyond redesigning form", "body": "This project explores how industrial design can challenge an existing product definition. It also strengthened my interest in interaction design, where physical interaction, product behaviour and everyday routines connect." },
+    { "type": "pdf-summary", "title": "Project in brief", "body": "Individual concept project covering product definition, interaction logic, industrial design and visual storytelling." }
+  ]
+}

@@ -22,3 +22,21 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# Local portfolio planning/source files for Codex reference
+_portfolio-source/
+
+# Keep publishing builds light: store originals outside public assets
+**/source-originals/
+**/source-original/
+**/originals/
+**/*-original.*
+*.psd
+*.ai
+*.sketch
+*.fig
+
+# Local temporary exports
+tmp/
+temp/
+*.tmp

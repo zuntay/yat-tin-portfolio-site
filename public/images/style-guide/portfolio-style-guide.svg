@@ -1,0 +1,40 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="1000" viewBox="0 0 1600 1000">
+  <defs>
+    <pattern id="dots" width="12" height="12" patternUnits="userSpaceOnUse"><circle cx="3" cy="3" r="1.7" fill="#1746D1"/></pattern>
+    <style>
+      .serif{font-family:Georgia,serif}.sans{font-family:Arial,sans-serif}.label{font:12px Arial,sans-serif;letter-spacing:2px}.body{font:16px Arial,sans-serif}.line{fill:none;stroke-width:2}.dash{stroke-dasharray:4 10}
+    </style>
+  </defs>
+  <rect width="1600" height="1000" fill="#F5F1E8"/>
+  <rect x="0" y="0" width="1600" height="14" fill="#FF7048"/>
+  <text x="70" y="85" class="label" fill="#18211D">YAT TIN LEE · PORTFOLIO VISUAL SYSTEM</text>
+  <text x="70" y="180" class="serif" font-size="78" fill="#18211D">Bright ideas. Clear structure.</text>
+  <text x="72" y="225" class="body" fill="#686C66">Editorial typography · sun-ray identity · print-inspired halftone · accessible interaction</text>
+  <g transform="translate(70 290)">
+    <text class="label" fill="#18211D">COLOUR TOKENS</text>
+    <g transform="translate(0 30)"><rect width="150" height="95" fill="#F5F1E8" stroke="#18211D"/><text y="120" class="label">PAPER #F5F1E8</text></g>
+    <g transform="translate(175 30)"><rect width="150" height="95" fill="#18211D"/><text y="120" class="label">INK #18211D</text></g>
+    <g transform="translate(350 30)"><rect width="150" height="95" fill="#FF7048"/><text y="120" class="label">CORAL #FF7048</text></g>
+    <g transform="translate(525 30)"><rect width="150" height="95" fill="#1746D1"/><text y="120" class="label">COBALT #1746D1</text></g>
+    <g transform="translate(700 30)"><rect width="150" height="95" fill="#D9FF43"/><text y="120" class="label">LIME #D9FF43</text></g>
+    <g transform="translate(875 30)"><rect width="150" height="95" fill="#C39B24"/><text y="120" class="label">GOLD #C39B24</text></g>
+    <g transform="translate(1050 30)"><rect width="150" height="95" fill="#E8E3D8"/><text y="120" class="label">SURFACE #E8E3D8</text></g>
+  </g>
+  <g transform="translate(70 515)">
+    <text class="label">TYPOGRAPHY</text><text y="70" class="serif" font-size="58">Instrument Serif for expressive display.</text><text y="115" class="body">Inter keeps body text, tags and controls crisp and practical.</text>
+  </g>
+  <g transform="translate(980 555)">
+    <path d="M180 130 C80 80 10 30 -80 -25" class="line" stroke="#FF7048"/><path d="M180 130 C150 30 150 -20 150 -80" class="line dash" stroke="#1746D1"/><path d="M180 130 C260 55 320 15 390 -10" class="line" stroke="#C39B24"/><path d="M180 130 C300 130 395 150 480 195" class="line dash" stroke="#18211D"/>
+    <circle cx="180" cy="130" r="76" fill="#FF7048" stroke="#18211D" stroke-width="3"/><circle cx="180" cy="130" r="100" fill="none" stroke="#1746D1" stroke-dasharray="3 8"/><text x="180" y="138" text-anchor="middle" class="serif" font-size="28">All Work</text>
+    <rect x="5" y="15" width="360" height="230" fill="url(#dots)" opacity=".18"/>
+  </g>
+  <g transform="translate(70 710)">
+    <text class="label">COMPONENT LANGUAGE</text>
+    <g transform="translate(0 35)"><rect width="250" height="135" fill="#E8E3D8" stroke="#18211D"/><rect width="80" height="135" fill="#FF7048"/><text x="105" y="52" class="serif" font-size="25">Yat Tin Lee</text><line x1="105" y1="63" x2="205" y2="63" stroke="#FF7048" stroke-width="3"/><text x="105" y="90" class="label">PROFILE CARD</text></g>
+    <g transform="translate(285 35)"><rect width="260" height="135" fill="#18211D"/><text x="20" y="28" class="label" fill="#F5F1E8">PDF SUMMARY</text><text x="20" y="78" class="serif" font-size="30" fill="#F5F1E8">Project in brief</text></g>
+    <g transform="translate(580 48)"><rect width="155" height="45" rx="23" fill="#FF7048" stroke="#18211D" stroke-width="3"/><circle cx="20" cy="22" r="5" fill="#18211D"/><text x="38" y="28" class="body" font-weight="bold">Active filter</text><line x1="35" y1="36" x2="130" y2="36" stroke="#18211D" stroke-width="3"/></g>
+    <g transform="translate(770 35)"><rect width="330" height="135" fill="#F5F1E8" stroke="#18211D"/><text x="18" y="25" class="label">HIGHLIGHT 01</text><text x="18" y="72" class="serif" font-size="30">Designed decision</text><rect x="300" width="30" height="135" fill="#D9FF43"/></g>
+  </g>
+  <g transform="translate(70 945)"><text class="label">ACCESSIBILITY · COLOUR + SHAPE + BORDER + MARKER · CHARCOAL/PAPER 14.62:1 · CHARCOAL/CORAL 6.01:1 · PAPER/COBALT 6.58:1</text></g>
+  <g transform="translate(1205 745)"><rect width="300" height="135" fill="#F5F1E8" stroke="#18211D"/><text x="18" y="25" class="label">DRAWER + RESUME PATTERNS</text><line x1="24" y1="48" x2="160" y2="48" stroke="#18211D"/><line x1="24" y1="72" x2="190" y2="72" stroke="#18211D"/><line x1="24" y1="96" x2="145" y2="96" stroke="#18211D"/><circle cx="258" cy="65" r="22" fill="#FF7048" stroke="#18211D" stroke-width="2"/><text x="258" y="69" text-anchor="middle" class="label">01</text><line x1="258" y1="88" x2="258" y2="125" stroke="#18211D"/></g>
+</svg>

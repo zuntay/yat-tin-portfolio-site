@@ -1,0 +1,25 @@
+---
+const { filters, count } = Astro.props;
+---
+<div class="sun-filter" role="group" aria-label="Filter projects by discipline">
+  <svg class="sun-wires" viewBox="0 0 1000 340" aria-hidden="true" preserveAspectRatio="none">
+    <path class="ink" d="M500 96 Q395 190 83 288" />
+    <path class="coral dotted" d="M500 96 Q430 205 250 288" />
+    <path class="gold" d="M500 96 Q480 195 417 288" />
+    <path class="cobalt dotted" d="M500 96 Q520 195 583 288" />
+    <path class="olive" d="M500 96 Q570 205 750 288" />
+    <path class="coral thin" d="M500 96 Q625 190 917 288" />
+    <circle class="sun-orbit coral dotted" cx="500" cy="96" r="78" />
+    <circle class="sun-orbit grey" cx="500" cy="96" r="99" />
+  </svg>
+  <button class="sun-core active" data-filter="all" data-label="All Work">
+    <strong>All Work</strong><sup>{count} projects</sup>
+  </button>
+  <div class="sun-tag-row">
+    {filters.map((filter) => (
+      <button class="sun-tag" data-filter={filter.value} data-label={filter.label}>
+        <i aria-hidden="true"></i><span>{filter.label}</span>
+      </button>
+    ))}
+  </div>
+</div>

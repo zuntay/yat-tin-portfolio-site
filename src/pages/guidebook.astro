@@ -1,0 +1,261 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const commandTemplates = [
+  {
+    label: 'Paste in Terminal',
+    title: 'Create a new project folder',
+    code: `cd ~/Documents/yat-tin-portfolio-site || exit
+
+PROJECT_SLUG="new-project-slug"
+
+mkdir -p "public/images/projects/$PROJECT_SLUG"
+mkdir -p "_portfolio-source/Projects/$PROJECT_SLUG/Images/source-originals"
+mkdir -p "_portfolio-source/Projects/$PROJECT_SLUG/Images/web-ready"`,
+  },
+  {
+    label: 'Paste in Terminal',
+    title: 'Create a project JSON file',
+    code: `cd ~/Documents/yat-tin-portfolio-site || exit
+
+PROJECT_SLUG="new-project-slug"
+
+cp src/content/projects/mobento.json "src/content/projects/$PROJECT_SLUG.json"
+open "src/content/projects/$PROJECT_SLUG.json"`,
+  },
+  {
+    label: 'Run before committing',
+    title: 'Check for large files',
+    code: `cd ~/Documents/yat-tin-portfolio-site || exit
+
+find public src docs -type f -size +5M -print`,
+  },
+  {
+    label: 'Run before committing',
+    title: 'Build the site',
+    code: `cd ~/Documents/yat-tin-portfolio-site || exit
+
+npm run build`,
+  },
+];
+
+const sectionBlocks = [
+  ['Text', 'Use for overview, challenge, process, outcome or reflection.', `{
+  "type": "text",
+  "eyebrow": "Concept overview",
+  "title": "A clear section title",
+  "body": "Confirmed project story text."
+}`],
+  ['Split', 'Use when one image supports one piece of story.', `{
+  "type": "split",
+  "eyebrow": "Process",
+  "title": "Sketching the interaction",
+  "body": "Confirmed process text.",
+  "image": "/images/projects/new-project-slug/new-project-slug-02.jpg",
+  "imageAlt": "Describe the image for accessibility.",
+  "caption": "Short visual note."
+}`],
+  ['Highlights', 'Use for decisions or qualitative outcomes, never invented metrics.', `{
+  "type": "highlights",
+  "eyebrow": "Design decisions",
+  "title": "What guided the work",
+  "items": [
+    {
+      "title": "Decision title",
+      "text": "Confirmed explanation."
+    }
+  ]
+}`],
+  ['Gallery', 'Use for a set of related public-safe images.', `{
+  "type": "gallery",
+  "eyebrow": "Final outcome",
+  "title": "Selected views",
+  "body": "Short confirmed gallery intro.",
+  "images": [
+    {
+      "src": "/images/projects/new-project-slug/new-project-slug-03.jpg",
+      "alt": "Accessible image description."
+    }
+  ]
+}`],
+  ['Links', 'Use for approved public project links only.', `{
+  "type": "links",
+  "title": "Explore more",
+  "links": [
+    {
+      "label": "Behance",
+      "href": "https://www.behance.net/"
+    }
+  ]
+}`],
+  ['PDF summary', 'Use for a short printable portfolio summary.', `{
+  "type": "pdf-summary",
+  "title": "Project in brief",
+  "body": "Short confirmed summary for printable portfolios."
+}`],
+];
+
+const jsonTemplate = `{
+  "title": "Project Title",
+  "order": 7,
+  "summary": "One honest sentence about the project.",
+  "year": "2026",
+  "status": "Case study coming soon",
+  "projectType": "Product / Industrial Design",
+  "role": "Your confirmed role",
+  "tags": ["Industrial Design"],
+  "thumbnail": "/images/projects/new-project-slug/new-project-slug-01.jpg",
+  "hero": "/images/projects/new-project-slug/new-project-slug-01.jpg",
+  "placeholder": true,
+  "featured": false,
+  "externalLinks": [],
+  "pdf": [],
+  "sections": []
+}`;
+
+const codexPrompt = `Add a new portfolio project using the existing project content system.
+
+Do not redesign the website.
+
+Read docs/codex-add-project-guide.md and docs/manual-add-project-guide.md first.
+
+Use only the project notes and images I provide.
+
+Do not invent facts, clients, awards, metrics, user research findings, team size, or outcomes.
+
+Create the project JSON, copy web-ready images into the correct folder, add tags, and include the project in PDF pages only if I explicitly ask.
+
+After changes, run npm run build and summarise changed files.`;
+
+const checklist = [
+  'run npm run build',
+  'check Work page',
+  'check project page',
+  'check mobile',
+  'check PDF pages',
+  'check guidebook',
+  'check no huge files',
+  'check no private files',
+  'commit to GitHub',
+  'push',
+  'check Vercel deployment',
+];
+---
+<BaseLayout title="Portfolio Guidebook — Yat Tin Lee" description="A printable maintenance guidebook for updating Yat Tin Lee’s portfolio.">
+  <article class="guidebook page-pad">
+    <header class="page-intro guidebook-hero">
+      <p class="eyebrow">Portfolio guidebook</p>
+      <h1>How to keep<br /><em>the portfolio alive.</em></h1>
+      <p>A visual maintenance guide for adding projects, preparing images, exporting PDFs and publishing updates without changing the portfolio design.</p>
+      <button class="guidebook-print no-print" type="button" onclick="window.print()">Print / Save guidebook PDF</button>
+      <p class="guidebook-print-note">Browser export: File -> Print -> Save as PDF. Use A4 if available.</p>
+    </header>
+
+    <section class="guidebook-sheet">
+      <div class="guidebook-heading"><span>01</span><h2>What this guide is for</h2></div>
+      <p>This guide explains the maintenance workflow in plain language. Project JSON feeds the Work page, project detail pages and printable portfolio pages. Edit the content once, then check everywhere it appears.</p>
+      <div class="guidebook-callout"><strong>Care rule</strong><p>If a fact is not confirmed, leave it out. Placeholder content is better than confident fiction.</p></div>
+    </section>
+
+    <section class="guidebook-sheet">
+      <div class="guidebook-heading"><span>02</span><h2>Portfolio folder map</h2></div>
+      <div class="guidebook-map">
+        <p><strong>Project data</strong><code>src/content/projects/*.json</code></p>
+        <p><strong>Public images</strong><code>public/images/projects/project-slug/</code></p>
+        <p><strong>Source originals</strong><code>_portfolio-source/Projects/project-slug/Images/source-originals/</code></p>
+        <p><strong>PDF routes</strong><code>src/pages/pdf/</code></p>
+        <p><strong>Manual docs</strong><code>docs/manual-add-project-guide.md</code></p>
+        <p><strong>Codex docs</strong><code>docs/codex-add-project-guide.md</code></p>
+      </div>
+    </section>
+
+    <section class="guidebook-sheet">
+      <div class="guidebook-heading"><span>03</span><h2>Manual workflow overview</h2></div>
+      <ol class="guidebook-flow">
+        <li>Choose a lowercase project slug.</li>
+        <li>Create project folders.</li>
+        <li>Export web-ready images.</li>
+        <li>Copy a project JSON file.</li>
+        <li>Replace placeholder content with confirmed content.</li>
+        <li>Run locally, build, commit and push.</li>
+      </ol>
+    </section>
+
+    <section class="guidebook-sheet">
+      <div class="guidebook-heading"><span>04</span><h2>Add a new project — visual steps</h2></div>
+      <div class="guidebook-command-grid">
+        {commandTemplates.map((item) => <article><span>{item.label}</span><h3>{item.title}</h3><pre><code>{item.code}</code></pre></article>)}
+      </div>
+    </section>
+
+    <section class="guidebook-sheet">
+      <div class="guidebook-heading"><span>05</span><h2>Image workflow</h2></div>
+      <div class="guidebook-two-up">
+        <div><h3>Originals</h3><p>Keep originals in `_portfolio-source`. This folder is not deployed and should hold raw, private or working material.</p></div>
+        <div><h3>Website-ready</h3><p>Only compressed, public-safe images belong in `public/images/projects/project-slug/`. These files go online.</p></div>
+      </div>
+      <pre><code>{`project-slug-01.jpg
+project-slug-02.jpg
+project-slug-03.jpg
+project-slug-thumb.jpg
+project-slug-hero.jpg`}</code></pre>
+    </section>
+
+    <section class="guidebook-sheet">
+      <div class="guidebook-heading"><span>06</span><h2>Project JSON anatomy</h2></div>
+      <p>Paste this into a new project JSON file, then replace every placeholder with confirmed content.</p>
+      <pre><code>{jsonTemplate}</code></pre>
+    </section>
+
+    <section class="guidebook-sheet">
+      <div class="guidebook-heading"><span>07</span><h2>Section block library</h2></div>
+      <div class="guidebook-blocks">
+        {sectionBlocks.map(([title, text, code]) => <article><span>Paste into sections array</span><h3>{title}</h3><p>{text}</p><pre><code>{code}</code></pre></article>)}
+      </div>
+    </section>
+
+    <section class="guidebook-sheet">
+      <div class="guidebook-heading"><span>08</span><h2>Tags and filters</h2></div>
+      <p>Projects are filtered by tags, not folders. Current public filters are Industrial Design, Interaction Design, DFM, Awarded, Project Management and UX Research. Awarded maps to `Award / Competition` in project data.</p>
+      <div class="guidebook-tags"><span>Industrial Design</span><span>Interaction Design</span><span>DFM</span><span>Award / Competition</span><span>Project Management</span><span>UX Research</span></div>
+    </section>
+
+    <section class="guidebook-sheet">
+      <div class="guidebook-heading"><span>09</span><h2>PDF inclusion</h2></div>
+      <p>The `pdf` array decides which printable portfolio includes a project.</p>
+      <pre><code>{`"pdf": ["product"]
+"pdf": ["product", "ux-ui"]
+"pdf": ["project-management"]
+"pdf": []`}</code></pre>
+    </section>
+
+    <section class="guidebook-sheet">
+      <div class="guidebook-heading"><span>10</span><h2>Testing locally</h2></div>
+      <p>Run `npm run dev`, open the local URL, then check `/work/`, the project page, `/pdf/`, `/style-guide/` and `/guidebook/`.</p>
+    </section>
+
+    <section class="guidebook-sheet">
+      <div class="guidebook-heading"><span>11</span><h2>GitHub backup</h2></div>
+      <pre><code>{`git status
+git add .
+git commit -m "Update portfolio project content"
+git push`}</code></pre>
+    </section>
+
+    <section class="guidebook-sheet">
+      <div class="guidebook-heading"><span>12</span><h2>Vercel deployment</h2></div>
+      <p>In Vercel, use the Astro preset, `npm run build` as the build command and `dist` as the output directory. After deploying, check the live URL.</p>
+    </section>
+
+    <section class="guidebook-sheet">
+      <div class="guidebook-heading"><span>13</span><h2>Honesty rules</h2></div>
+      <p>Do not invent clients, awards, metrics, user research findings, team size, quotes or outcomes. Use `To be confirmed`, `Case study coming soon` or `placeholder: true` until content is ready.</p>
+      <div class="guidebook-callout"><strong>Codex prompt</strong><pre><code>{codexPrompt}</code></pre></div>
+    </section>
+
+    <section class="guidebook-sheet guidebook-checklist">
+      <div class="guidebook-heading"><span>14</span><h2>Final checklist</h2></div>
+      <ul>{checklist.map((item) => <li>{item}</li>)}</ul>
+    </section>
+  </article>
+</BaseLayout>

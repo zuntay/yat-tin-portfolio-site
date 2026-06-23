@@ -1,0 +1,21 @@
+---
+const { project, index = 0 } = Astro.props;
+const { data } = project;
+---
+<article class:list={['project-card', { 'is-placeholder': data.placeholder }]} data-tags={data.tags.join('|')}>
+  <a href={`/projects/${project.id}/`} aria-label={`View ${data.title}`}>
+    <div class="card-image">
+      <img src={data.thumbnail} alt={data.placeholder ? '' : `${data.title} project thumbnail`} loading={index > 1 ? 'lazy' : 'eager'} />
+      {data.placeholder && <div class="placeholder-card-mark"><span>{String(index + 1).padStart(2, '0')}</span><strong>{data.title}</strong><small>{data.projectType}</small></div>}
+      <span class="card-number">{String(index + 1).padStart(2, '0')}</span>
+      {data.placeholder && <span class="status-pill">In progress</span>}
+      {data.badge && <span class="card-badge">{data.badge.label}</span>}
+      {data.companyLogo && <span class="card-logo"><img src={data.companyLogo.src} alt={data.companyLogo.alt} /></span>}
+    </div>
+    <div class="card-copy">
+      <div><h3>{data.title}</h3><p>{data.summary}</p></div>
+      <span class="round-arrow" aria-hidden="true">↗</span>
+    </div>
+    <ul class="tag-list" aria-label="Project tags">{data.tags.slice(0, 3).map((tag) => <li>{tag}</li>)}</ul>
+  </a>
+</article>

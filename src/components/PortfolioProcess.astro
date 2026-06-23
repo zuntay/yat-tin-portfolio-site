@@ -1,0 +1,73 @@
+---
+const stages = [
+  {
+    title: 'Collect project evidence',
+    description: 'Gather confirmed notes, images, outcomes and links before shaping the story.',
+    tags: ['Evidence', 'Source first'],
+  },
+  {
+    title: 'Define role, tags & type',
+    description: 'Clarify the contribution and use tags to connect each project across disciplines.',
+    tags: ['Role', 'Tag based'],
+  },
+  {
+    title: 'Select images & visual story',
+    description: 'Choose a focused image sequence that can carry the project without excess explanation.',
+    tags: ['Image led', 'Sequence'],
+  },
+  {
+    title: 'Build flexible sections',
+    description: 'Compose only the case-study blocks the project needs, rather than forcing one template.',
+    tags: ['Reusable', 'Flexible'],
+  },
+  {
+    title: 'Publish website project',
+    description: 'Release one structured project entry into the searchable, tag-filtered portfolio.',
+    tags: ['One source', 'Website'],
+  },
+  {
+    title: 'Export job-specific PDF',
+    description: 'Reuse the same approved content in a focused, browser-printable portfolio edit.',
+    tags: ['Print ready', 'Role focused'],
+  },
+];
+---
+<section class="portfolio-process page-pad" id="portfolio-system" aria-labelledby="process-title">
+  <header class="process-intro">
+    <div>
+      <p class="eyebrow">Design process · Portfolio system</p>
+      <h2 id="process-title">One project story.<br /><em>Many useful formats.</em></h2>
+    </div>
+    <p>This portfolio is designed as a sustainable content system: evidence becomes a flexible case study, tags make work discoverable, and the same approved content can be shaped into job-specific PDFs.</p>
+  </header>
+
+  <div class="process-board">
+    <div class="process-key" aria-hidden="true">
+      <span>Input</span><i></i><span>Reusable content</span><i></i><span>Output</span>
+    </div>
+    <ol class="process-flow">
+      {stages.map((stage, index) => (
+        <li class:list={['process-stage', `stage-${index + 1}`]}>
+          <div class="process-node" aria-hidden="true">{String(index + 1).padStart(2, '0')}</div>
+          <article>
+            <span class="stage-count">Stage {String(index + 1).padStart(2, '0')}</span>
+            <h3>{stage.title}</h3>
+            <p>{stage.description}</p>
+            <ul aria-label={`${stage.title} principles`}>
+              {stage.tags.map((tag) => <li>{tag}</li>)}
+            </ul>
+          </article>
+        </li>
+      ))}
+    </ol>
+    <div class="process-note note-one" aria-hidden="true">No invented metrics</div>
+    <div class="process-note note-two" aria-hidden="true">Update once ↗ reuse well</div>
+  </div>
+
+  <footer class="process-principles">
+    <p><span>01</span> Project-based content</p>
+    <p><span>02</span> Tag-filtered discovery</p>
+    <p><span>03</span> Flexible section blocks</p>
+    <p><span>04</span> Website + PDF reuse</p>
+  </footer>
+</section>

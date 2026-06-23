@@ -1,0 +1,38 @@
+---
+import { getCollection } from 'astro:content';
+import BaseLayout from '../../layouts/BaseLayout.astro';
+import ProjectSections from '../../components/ProjectSections.astro';
+export async function getStaticPaths() { return (await getCollection('projects')).map((project) => ({ params: { id: project.id }, props: { project } })); }
+const { project } = Astro.props;
+const { data } = project;
+const sectionVisuals = data.sections.flatMap((section) => {
+  if (section.type === 'split' && section.image) return [{ src: section.image, alt: section.imageAlt || '', caption: section.caption, label: section.eyebrow }];
+  if (section.type === 'gallery' && section.images) return section.images.map((image) => ({ ...image, label: section.eyebrow }));
+  return [];
+});
+---
+<BaseLayout title={`${data.title} — Yat Tin Lee`} description={data.summary}>
+  <article class="project-detail">
+    <header class="project-hero page-pad">
+      <div class="project-title"><p class="eyebrow">{data.projectType}</p><h1>{data.title}</h1><p>{data.summary}</p></div>
+      <div class="project-meta"><div><span>Year</span><p>{data.year}</p></div><div><span>Role</span><p>{data.role}</p></div><div><span>Status</span><p>{data.status}</p></div></div>
+      <ul class="tag-list">{data.tags.map((tag) => <li>{tag}</li>)}</ul>
+      {data.badge && <div class="badge-row"><span>Award / recognition</span>{data.badge.href ? <a href={data.badge.href}>{data.badge.label} ↗</a> : <p>{data.badge.label}</p>}</div>}
+      {data.companyLogo && <img class="company-logo" src={data.companyLogo.src} alt={data.companyLogo.alt} />}
+    </header>
+    <div class:list={['project-hero-image', { placeholder: data.placeholder }]}><img src={data.hero} alt={data.placeholder ? '' : `${data.title} hero`} />{data.placeholder && <div><span>Project preview</span><strong>Imagery coming soon</strong></div>}</div>
+    {data.placeholder && <aside class="placeholder-notice page-pad"><strong>This case study is in progress.</strong><p>The structure is ready for confirmed content. No client, process or outcome details have been assumed.</p></aside>}
+    <nav class="mobile-project-switch" aria-label="Jump between project images and story">
+      <a href="#project-images">Images</a><a href="#project-content">Story</a>
+    </nav>
+    <div class:list={['case-study-board', 'page-pad', { 'placeholder-board': data.placeholder }]}> 
+      <aside class="visual-board" id="project-images" aria-label={`${data.title} visual story`}>
+        <div class="visual-board-label"><span>Visual story</span><span>{String(sectionVisuals.length).padStart(2, '0')} frames</span></div>
+        {sectionVisuals.length > 0 ? sectionVisuals.map((visual, index) => <figure><div class="frame-index">{String(index + 1).padStart(2, '0')}</div><img src={visual.src} alt={visual.alt} loading="lazy" /><figcaption><span>{visual.label}</span>{visual.caption && <p>{visual.caption}</p>}</figcaption></figure>) : <div class="empty-visual"><span>Visual evidence</span><strong>To be added</strong></div>}
+      </aside>
+      <div class="reading-column" id="project-content"><div class="reading-label"><span>Case study</span><span>Scroll to read ↓</span></div><ProjectSections sections={data.sections} /></div>
+    </div>
+    {data.externalLinks.length > 0 && <div class="external-links page-pad">{data.externalLinks.map((link) => <a href={link.href}>{link.label} ↗</a>)}</div>}
+    <nav class="next-project page-pad"><p>Continue exploring</p><a href="/work/">All projects <span>↗</span></a></nav>
+  </article>
+</BaseLayout>

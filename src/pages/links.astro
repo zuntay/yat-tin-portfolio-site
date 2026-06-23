@@ -1,0 +1,12 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const links = [
+  { label: 'UTS email', note: 'yatintin.lee@student.uts.edu.au', href: 'mailto:yatintin.lee@student.uts.edu.au' },
+  { label: 'Personal email', note: 'mrsundaylee@gmail.com', href: 'mailto:mrsundaylee@gmail.com' },
+  { label: 'Phone', note: '(+61) 422 176 467', href: 'tel:+61422176467' },
+  { label: 'Printable portfolios', note: 'Role-focused PDF layouts', href: '/pdf/' },
+  { label: 'LinkedIn', note: 'Profile link to be added', href: '#' },
+  { label: 'Behance', note: 'Portfolio link to be added', href: '#' },
+];
+---
+<BaseLayout title="Links — Yat Tin Lee"><header class="page-intro page-pad"><p class="eyebrow">Links</p><h1>Find me<br /><em>around the web.</em></h1></header><section class="link-list page-pad">{links.map((link, i) => <a href={link.href} class:list={{ disabled: link.href === '#' }}><span>{String(i + 1).padStart(2, '0')}</span><div><h2>{link.label}</h2><p>{link.note}</p></div><b>↗</b></a>)}</section></BaseLayout>

@@ -1,0 +1,5 @@
+---
+import { getCollection } from 'astro:content'; import BaseLayout from '../../layouts/BaseLayout.astro'; import PdfPortfolio from '../../components/PdfPortfolio.astro';
+const projects = (await getCollection('projects')).filter((p) => p.data.pdf.includes('project-management')).sort((a,b) => a.data.order-b.data.order);
+---
+<BaseLayout title="Project Management Portfolio — Yat Tin Lee" print><PdfPortfolio title="Project Management" subtitle="Selected work in design coordination, production thinking and delivery." projects={projects} /></BaseLayout>

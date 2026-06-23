@@ -1,0 +1,43 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const steps = [
+  ['01', 'Edit project data', 'Project JSON files live in src/content/projects. Copy an existing entry, rename it to the new slug, and keep placeholder mode on until facts are confirmed.'],
+  ['02', 'Prepare images', 'Put only web-ready images in public/images/projects/project-slug. Keep large originals and private working files outside public assets.'],
+  ['03', 'Choose tags and PDFs', 'Tags drive Work page filtering. The pdf array controls Product, UX/UI and Project Management printable versions.'],
+  ['04', 'Build before publishing', 'Run npm run build, check key routes, then commit and push to GitHub when the site is ready.'],
+];
+
+const files = [
+  ['Manual guide', '/docs/manual-add-project-guide.md', 'Step-by-step guide for adding projects by hand.'],
+  ['Codex guide', '/docs/codex-add-project-guide.md', 'Instructions for future AI-assisted project additions.'],
+  ['Deployment checklist', '/docs/deployment-checklist.md', 'Pre-publishing checklist for GitHub and Vercel.'],
+  ['Style guide docs', '/docs/STYLE_GUIDE.md', 'Written reference for the visual system.'],
+];
+---
+<BaseLayout title="Maintenance Guide — Yat Tin Lee" description="Local maintenance guide for updating Yat Tin Lee’s portfolio.">
+  <header class="page-intro page-pad identity-intro maintenance-hero">
+    <p class="eyebrow">Maintenance guide</p>
+    <h1>Keep the site<br /><em>easy to update.</em></h1>
+    <p>A practical map for adding projects, preparing images, checking printable portfolios and publishing the site without changing the visual design.</p>
+  </header>
+
+  <section class="guide-section page-pad">
+    <div class="guide-heading"><p class="eyebrow">Project workflow</p><h2>One content source,<br />many outputs.</h2><p>Project JSON feeds the Work wall, project pages and printable portfolios. Edit the content carefully once, then test every place it appears.</p></div>
+    <div class="guide-story-grid maintenance-steps">
+      {steps.map(([number, title, text]) => <article><span>{number}</span><h3>{title}</h3><p>{text}</p></article>)}
+    </div>
+  </section>
+
+  <section class="guide-section page-pad">
+    <div class="guide-heading"><p class="eyebrow">Where to look</p><h2>Files worth<br />remembering.</h2><p>These documents are written for future updates. They are not linked in the main navigation, but the route can stay available as a quiet local reference.</p></div>
+    <div class="component-board maintenance-file-grid">
+      {files.map(([label, path, text]) => <article><span>{label}</span><h3>{path}</h3><p>{text}</p></article>)}
+    </div>
+  </section>
+
+  <section class="guide-section page-pad">
+    <div class="guide-heading"><p class="eyebrow">Before publishing</p><h2>Check the quiet<br />important things.</h2><p>Build the site, review mobile, test PDF pages, avoid huge originals and keep all claims honest. If something is not confirmed, the placeholder state is the right state.</p></div>
+    <div class="colour-access-note maintenance-note"><p><strong>Core rule.</strong> Do not invent project facts, metrics, awards, clients or research outcomes.</p><div><span>Build<br /><small>npm run build</small></span><span>Images<br /><small>web-ready only</small></span><span>PDF<br /><small>check print</small></span><span>GitHub<br /><small>commit + push</small></span></div><p>Use `docs/deployment-checklist.md` before connecting the GitHub repository to Vercel.</p></div>
+  </section>
+</BaseLayout>

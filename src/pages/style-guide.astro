@@ -1,0 +1,60 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+const colours = [
+  { token: '--color-bg', hex: '#F5F1E8', name: 'Warm paper', use: 'Primary background', class: 'bg' },
+  { token: '--color-text', hex: '#18211D', name: 'Deep charcoal', use: 'Text and structure', class: 'text' },
+  { token: '--color-muted', hex: '#686C66', name: 'Muted text', use: 'Secondary labels', class: 'muted' },
+  { token: '--color-accent', hex: '#FF7048', name: 'Bright coral', use: 'Primary interaction', class: 'coral' },
+  { token: '--color-accent-2', hex: '#1746D1', name: 'Electric cobalt', use: 'Identity graphics', class: 'cobalt' },
+  { token: '--color-highlight', hex: '#D9FF43', name: 'Acid lime', use: 'Playful highlights', class: 'lime' },
+  { token: '--color-accent-3', hex: '#C39B24', name: 'Warm gold', use: 'Supporting rays', class: 'gold' },
+  { token: '--color-surface', hex: '#E8E3D8', name: 'Paper surface', use: 'Cards and panels', class: 'surface' },
+];
+---
+<BaseLayout title="Style Guide — Yat Tin Lee" description="The visual system behind Yat Tin Lee’s portfolio.">
+  <header class="page-intro style-guide-hero page-pad identity-intro">
+    <p class="eyebrow">Visual system</p>
+    <h1>Bright ideas.<br /><em>Clear structure.</em></h1>
+    <p>A visual language for curiosity in motion: one design question at the centre, with ideas, evidence and disciplines radiating into view.</p>
+  </header>
+
+  <section class="guide-section page-pad">
+    <div class="guide-heading"><p class="eyebrow">Colour</p><h2>Warmth, energy<br />and room to think.</h2><p>Bright accents bring momentum, while warm paper and charcoal keep the work calm, grounded and readable.</p></div>
+    <div class="colour-grid">{colours.map((colour) => <article><div class={`colour-swatch ${colour.class}`}></div><span>{colour.token}</span><h3>{colour.name}</h3><code>{colour.hex}</code><p>{colour.use}</p></article>)}</div>
+    <div class="colour-access-note"><p><strong>Accessible by design.</strong> Colour supports the story but never carries it alone. Active states combine fill, shape, border weight, dot markers and underlines.</p><div><span>14.62:1<br /><small>Charcoal / paper</small></span><span>6.01:1<br /><small>Charcoal / coral</small></span><span>6.58:1<br /><small>Paper / cobalt</small></span><span>14.39:1<br /><small>Charcoal / lime</small></span></div><p>Keyboard focus uses a high-contrast outline, body text remains readable, and decorative ray colours communicate no essential information.</p></div>
+  </section>
+
+  <section class="guide-section page-pad guide-type">
+    <div class="guide-heading"><p class="eyebrow">Typography</p><h2>A voice with feeling,<br />held by clarity.</h2><p>Display type carries the editorial voice; body type protects clarity. The scale uses contrast, rhythm and spacing to help employers scan project information quickly without losing the personality of the portfolio.</p></div>
+    <div class="type-board">
+      <div class="type-specimen-main"><span>Display · Instrument Serif</span><p class="type-display">Things made<br /><em>& managed.</em></p><p class="type-body">Large serif moments create hierarchy and character. They are reserved for page titles, project names and conceptual statements, so the portfolio feels expressive without making every element shout.</p></div>
+      <div class="type-specimen-notes"><span>Body · Inter</span><p>Inter handles the practical work: reading, navigation, labels and controls. Body copy stays generous in size and line height, metadata stays clear enough to scan, and interactive text keeps enough contrast to remain legible across devices.</p><ul class="type-principles"><li>Hierarchy guides attention before decoration.</li><li>Consistent scale helps visitors recognise patterns quickly.</li><li>Metadata supports scanning, but never becomes unreadable.</li><li>Focus, contrast and spacing protect usability on small screens.</li></ul><button class="guide-button">Button / link ↗</button></div>
+    </div>
+  </section>
+
+  <section class="guide-section page-pad">
+    <div class="guide-heading"><p class="eyebrow">Identity</p><h2>Rays, rhythm<br />and direction.</h2><p>The sun-ray system is a visual reminder of a working principle: good design and ethical care should resonate honestly across every field.</p></div>
+    <div class="identity-board"><div class="guide-sun" aria-hidden="true"><i></i><i></i><i></i><i></i><i></i><i></i><strong>All Work</strong></div><div class="guide-halftone"><span>Evidence dots</span></div></div>
+    <div class="identity-copy"><p>The sun holds a shared practice of care. Each ray reaches a different field with equal attention, because industrial design, DFM, project management, interaction design, UX research and awarded work should not be treated as secondary to one another.</p><p>Different disciplines ask for different knowledge, experience and responsibilities. The rays are a quiet reminder to meet each one with humility, exploration, learning, empathy, practical sense-making and honest attention to context.</p><p>Halftone dots hold the fragments of work: evidence, process, research notes, sketches, constraints and decisions. Lines show direction, connection and choice, making the identity a reminder of how I want to work, not just a decoration.</p></div>
+  </section>
+
+  <section class="guide-section page-pad">
+    <div class="guide-heading"><p class="eyebrow">Components</p><h2>Shared thinking,<br />different expressions.</h2><p>Profile, filter, project and resume components share one visual grammar while leaving each story room to take its own shape.</p></div>
+    <div class="component-board">
+      <article class="guide-profile"><div>YTL</div><p><span>Designer profile</span><strong>Yat Tin Lee</strong><small>Multidisciplinary designer</small></p></article>
+      <article class="guide-project-card"><div><span>01</span><b>Project image</b></div><h3>Project title</h3><p>Short, confirmed summary content.</p></article>
+      <article class="guide-controls"><span>Filter states</span><button class="guide-filter active"><i></i>Active</button><button class="guide-filter"><i></i>Default</button><mark>Badge label</mark></article>
+      <article class="guide-highlight"><span>01</span><h3>Highlight card</h3><p>Qualitative decisions and outcomes without invented metrics.</p></article>
+      <article class="guide-pdf"><span>PDF summary</span><h3>Project in brief</h3><p>One approved content source, reused carefully.</p></article>
+      <a class="guide-external" href="/work/">Project path <b>↗</b></a>
+      <article class="guide-drawer"><span>Drawer navigation</span><div><i></i><i></i><i></i><b>Menu panel</b></div><p>Left-side navigation with focus trap, Escape and overlay dismissal.</p></article>
+      <article class="guide-capability"><span>Capability card</span><h3>Production / Delivery</h3><p>Grouped strengths with clear, factual labels.</p></article>
+      <article class="guide-timeline"><span>Timeline card</span><div><i>01</i><p><strong>Experience role</strong><small>Dates · organisation</small></p></div></article>
+    </div>
+  </section>
+
+  <section class="guide-section page-pad">
+    <div class="guide-heading"><p class="eyebrow">In use</p><h2>One identity,<br />across every format.</h2><p>The system grows quieter or brighter according to the content it supports.</p></div>
+    <div class="guide-story-grid"><article><span>Portfolio wall</span><p>Consistent image-led cards keep attention on the work. Colour appears only as a small navigational spark.</p></article><article><span>Sticky filter</span><p>A miniature sun keeps disciplines within reach, carrying the same dots, rays and multi-cue active states.</p></article><article><span>Project pages</span><p>Rays and halftone soften around case studies so images and evidence remain the clearest voice.</p></article><article><span>PDF pages</span><p>The identity becomes print-light: restrained colour, clean page breaks and enough texture to remain recognisable.</p></article></div>
+  </section>
+</BaseLayout>
