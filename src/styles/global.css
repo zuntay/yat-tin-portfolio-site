@@ -175,6 +175,8 @@ body:not(.page-work):not(.print-page) .page-intro:after,.contact-hero:after,.not
 .site-footer:after { content: ''; position: absolute; right: clamp(20px,5vw,72px); top: 30px; width: 170px; height: 118px; background: radial-gradient(circle,var(--color-accent-3) 1px,transparent 1.65px) 0 0/9px 9px; opacity: .16; mask-image: radial-gradient(ellipse,#000,transparent 74%); pointer-events: none; }
 .site-footer a { text-decoration-thickness: 1px; text-underline-offset: 5px; }
 .site-footer a:hover { color: var(--color-accent-2); text-decoration-line: underline; }
+.footer-contact a { display: block; overflow-wrap: anywhere; line-height: 1.45; }
+.footer-contact a + a { margin-top: 6px; }
 .button-link,.text-link,.guide-button,.drawer-close,.pdf-toolbar button { border-radius: 999px; }
 .button-link { border-color: rgba(24,33,29,.72); }
 .contact-placeholder,.profile-copy strong,.guide-profile strong { text-decoration-thickness: 2px; text-underline-offset: 7px; }
