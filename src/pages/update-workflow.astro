@@ -1,0 +1,122 @@
+---
+import BaseLayout from '../layouts/BaseLayout.astro';
+
+const setup = [
+  ['Website framework', 'Astro'],
+  ['Code editor / AI assistant', 'Codex, optional'],
+  ['Local computer', 'MacBook Air'],
+  ['Local project folder', '~/Documents/yat-tin-portfolio-site'],
+  ['Code backup', 'GitHub repository'],
+  ['GitHub repo', 'https://github.com/zuntay/yat-tin-portfolio-site'],
+  ['Hosting', 'Vercel'],
+  ['Live site', 'https://yat-tin-portfolio-site.vercel.app/work/'],
+  ['Main branch', 'main'],
+];
+
+const scenarios = [
+  ['Small text update', 'Typo, footer, contact details or resume wording.', 'edit -> build -> commit -> push'],
+  ['Add a new project manually', 'Use docs/manual-add-project-guide.md and /guidebook/.', 'prepare images -> edit JSON -> build -> push'],
+  ['Add a new project with Codex', 'Use docs/codex-add-project-guide.md and provide only confirmed notes/images.', 'prompt -> review -> build -> push'],
+  ['Change visual design', 'Only do this intentionally. Ask Codex not to rebuild the site unless needed.', 'scope -> edit -> check pages -> build'],
+  ['Update images', 'Web-ready images go in public/images/projects/project-slug. Originals stay outside public deployment.', 'optimize -> copy -> update paths -> build'],
+  ['Emergency rollback', 'Use Vercel rollback if urgent, then fix locally and push again.', 'rollback -> fix -> build -> push'],
+];
+
+const limitations = [
+  ['GitHub Free', 'Stores code and history. Good for this personal portfolio. Not an image/video archive, not a CMS, and not a place for private CVs or raw client files.'],
+  ['Vercel Hobby', 'Hosts and redeploys the site from GitHub. Suitable for personal projects. Heavy traffic, team workflows, advanced analytics or commercial production needs may call for Pro.'],
+  ['Astro', 'Excellent for fast static portfolio pages. It does not include an editing dashboard by default, so content is edited through files.'],
+  ['No CMS yet', 'Great for control and visual quality. Less convenient if you want phone/browser editing or non-technical collaborators later.'],
+];
+
+const costs = [
+  ['Current personal portfolio', 'GitHub Free + Vercel Hobby', 'No browser CMS, keep files optimized', 'Stay as-is', '$0/month', 'No switch needed unless traffic or features grow'],
+  ['Want custom domain', 'Vercel project URL', 'Subdomain looks less polished', 'Buy domain and connect to Vercel', 'around $10-30/year', 'When sharing portfolio professionally'],
+  ['Professional hosting/team features', 'Vercel Hobby', 'Limited team/commercial workflow', 'Vercel Pro', 'around $20/month + usage', 'If business/commercial, analytics, higher limits or deployment controls matter'],
+  ['More code collaboration', 'GitHub Free', 'Basic collaboration only', 'GitHub Team', 'around $4 USD/user/month', 'If multiple collaborators regularly edit the repo'],
+  ['Visual browser editing', 'File-based Astro', 'Requires local files/code', 'Webflow, Framer, Sanity, Contentful, TinaCMS, Decap CMS', 'varies widely', 'If you want updates without touching code'],
+  ['Heavy video/image portfolio', 'Public assets in repo', 'Repo/deploys can become heavy', 'YouTube, Vimeo, Cloudinary or external media hosting', 'varies', 'If media slows the site or deployments'],
+  ['Contact form/database/login', 'Static pages only', 'No database/account system', 'Vercel Functions, Formspree, Supabase, Firebase, Netlify Forms', 'free tiers, paid as usage grows', 'If the site needs data collection or accounts'],
+  ['Ultra-simple no-code editing', 'Astro + files', 'More technical maintenance', 'Squarespace, Wix, Webflow, Framer', 'usually paid monthly/yearly', 'If maintenance time matters more than code/design control'],
+];
+
+const beforePush = ['run npm run build', 'check git status', 'do not commit dist/', 'do not commit node_modules/', 'do not commit private CV files', 'do not commit raw client files', 'do not commit huge source images', 'check contact details', 'open local preview if visual changes were made', 'write a clear commit message', 'push only when ready'];
+---
+<BaseLayout title="Portfolio Update Workflow — Yat Tin Lee" description="A living guide for keeping Yat Tin Lee’s portfolio updated, backed up, and safely online.">
+  <article class="update-workflow page-pad">
+    <header class="page-intro update-workflow-hero">
+      <p class="eyebrow">Portfolio update workflow</p>
+      <h1>Keep it updated,<br /><em>backed up & online.</em></h1>
+      <p>A living guide for keeping the site updated, backed up, and safely online.</p>
+      <button class="guidebook-print no-print" type="button" onclick="window.print()">Print / Save workflow PDF</button>
+      <p class="guidebook-print-note">To export this guide: Browser -> File -> Print -> Save as PDF.</p>
+    </header>
+
+    <section class="workflow-sheet">
+      <div class="guidebook-heading"><span>01</span><h2>Current setup</h2></div>
+      <div>
+        <div class="workflow-setup-grid">{setup.map(([label, value]) => <p><strong>{label}</strong><code>{value}</code></p>)}</div>
+        <div class="workflow-flow" aria-label="Deployment flow"><span>Local files</span><i></i><span>Git commit</span><i></i><span>GitHub backup</span><i></i><span>Vercel deploy</span><i></i><span>Live website</span></div>
+      </div>
+    </section>
+
+    <section class="workflow-sheet">
+      <div class="guidebook-heading"><span>02</span><h2>Everyday update workflow</h2></div>
+      <div class="workflow-command-stack">
+        <article><span>Step A - Paste in Terminal</span><h3>Open project</h3><pre><code>{`cd ~/Documents/yat-tin-portfolio-site || exit`}</code></pre></article>
+        <article><span>Step B - Make changes</span><h3>Edit carefully</h3><p>Use Codex for larger changes, VS Code for manual edits, and the existing docs when adding projects. Do not edit <code>dist/</code>.</p></article>
+        <article><span>Step C - Paste in Terminal</span><h3>Test locally</h3><pre><code>{`npm run build
+npm run dev`}</code></pre></article>
+        <article><span>Step D - Paste in Terminal</span><h3>Check changed files</h3><pre><code>{`git status`}</code></pre></article>
+        <article><span>Step E - Paste in Terminal</span><h3>Save checkpoint</h3><pre><code>{`git add .
+git commit -m "Describe the update clearly"`}</code></pre></article>
+        <article><span>Step F - Paste in Terminal</span><h3>Publish online</h3><pre><code>{`git push`}</code></pre><p>Vercel automatically redeploys after GitHub receives the push.</p></article>
+      </div>
+    </section>
+
+    <section class="workflow-sheet">
+      <div class="guidebook-heading"><span>03</span><h2>Different update scenarios</h2></div>
+      <div class="workflow-card-grid">{scenarios.map(([title, text, flow]) => <article><h3>{title}</h3><p>{text}</p><code>{flow}</code></article>)}</div>
+    </section>
+
+    <section class="workflow-sheet">
+      <div class="guidebook-heading"><span>04</span><h2>Current service limitations</h2></div>
+      <div class="workflow-card-grid">{limitations.map(([title, text]) => <article><h3>{title}</h3><p>{text}</p></article>)}</div>
+    </section>
+
+    <section class="workflow-sheet workflow-wide">
+      <div class="guidebook-heading"><span>05</span><h2>Cost and upgrade decisions</h2></div>
+      <div>
+        <p class="workflow-note">All prices are estimates. Pricing changes. Check official pricing before upgrading.</p>
+        <div class="workflow-cost-table">
+          <table><thead><tr><th>Need / situation</th><th>Current option</th><th>Limitation</th><th>Alternative</th><th>Estimated cost</th><th>When to switch</th></tr></thead><tbody>{costs.map((row) => <tr>{row.map((cell) => <td>{cell}</td>)}</tr>)}</tbody></table>
+        </div>
+      </div>
+    </section>
+
+    <section class="workflow-sheet">
+      <div class="guidebook-heading"><span>06</span><h2>Recommended path</h2></div>
+      <div class="guidebook-callout"><strong>Next 1-2 years</strong><p>Keep Astro + GitHub + Vercel. Stay on free plans if traffic is normal. Buy a custom domain when ready. Keep images optimized. Update via Codex or the manual JSON guide. Review costs only if the site grows or becomes business-critical.</p></div>
+    </section>
+
+    <section class="workflow-sheet workflow-checklist">
+      <div class="guidebook-heading"><span>07</span><h2>Before every push</h2></div>
+      <ul>{beforePush.map((item) => <li>{item}</li>)}</ul>
+    </section>
+
+    <section class="workflow-sheet">
+      <div class="guidebook-heading"><span>08</span><h2>Recovery guide</h2></div>
+      <div class="workflow-command-stack">
+        <article><h3>If the site breaks after push</h3><p>Check the Vercel deployment log. If urgent, use Vercel rollback. Then fix locally, run build, commit and push again.</p></article>
+        <article><span>Paste in Terminal</span><h3>If you edited the wrong thing</h3><pre><code>{`git status
+git restore path/to/file`}</code></pre></article>
+        <article><span>Paste in Terminal</span><h3>If you want to see history</h3><pre><code>{`git log --oneline --decorate -5`}</code></pre></article>
+      </div>
+    </section>
+
+    <section class="workflow-sheet">
+      <div class="guidebook-heading"><span>09</span><h2>Sources and pricing note</h2></div>
+      <div><p>Pricing and limits were checked around June 2026, but services change. Before paying for any plan, check the current GitHub, Vercel and domain registrar pricing pages.</p><div class="guidebook-tags"><span>GitHub Pricing</span><span>GitHub Pages Limits</span><span>Vercel Pricing</span><span>Vercel Limits</span><span>Astro Deployment Docs</span></div></div>
+    </section>
+  </article>
+</BaseLayout>

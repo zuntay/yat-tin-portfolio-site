@@ -52,9 +52,11 @@ Future Codex sessions should follow: `docs/codex-add-project-guide.md`.
 
 - Manual project guide: `docs/manual-add-project-guide.md`
 - Codex project guide: `docs/codex-add-project-guide.md`
+- Update workflow guide: `docs/portfolio-update-workflow.md`
 - Deployment checklist: `docs/deployment-checklist.md`
 - Visual system guide: `docs/STYLE_GUIDE.md`
 - Visual guidebook page: `/guidebook/`
+- Update workflow page: `/update-workflow/`
 - Local maintenance overview: `/maintenance-guide/`
 
 The guidebook and maintenance routes are intentionally not in the main navigation.
@@ -62,6 +64,8 @@ The guidebook and maintenance routes are intentionally not in the main navigatio
 Use `docs/manual-add-project-guide.md` when adding projects manually. Use `docs/codex-add-project-guide.md` when asking Codex to add or replace a project with AI assistance.
 
 To export the guidebook as a PDF, open `/guidebook/` in the browser, choose **File → Print**, then select **Save as PDF**.
+
+To export the update workflow as a PDF, open `/update-workflow/` and use the same browser print flow.
 
 ## Printable Portfolios
 
