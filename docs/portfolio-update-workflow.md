@@ -166,6 +166,13 @@ Icon maintenance rule:
 - Use `src/components/IconArrow.astro` for UI/action arrows.
 - Do not use Unicode arrow symbols in links, cards, drawer items or buttons. Mobile browsers may render arrow characters as emoji-style glyphs.
 
+Handwritten statement replacement:
+
+- The Work page uses the replaceable generated dirty-ink asset at `public/images/brand/work-statement-ink.svg`.
+- Replace `public/images/brand/work-statement-ink.svg` with a custom handwritten, generated, or manually drawn ink image later.
+- To replace the handwritten statement, export a transparent PNG or SVG with the same filename and place it in `public/images/brand/`.
+- Keep the statement accessible with alt text or visually hidden fallback text.
+
 ### Update Images
 
 Rules:

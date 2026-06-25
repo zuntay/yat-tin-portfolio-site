@@ -1,0 +1,21 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="1600" height="420" viewBox="0 0 1600 420" role="img" aria-labelledby="title desc">
+  <title id="title">Good design shines equally across every discipline.</title>
+  <desc id="desc">Temporary handwritten-style placeholder artwork. Replace this file with a transparent SVG or PNG using the same filename.</desc>
+  <rect width="1600" height="420" fill="none"/>
+  <g fill="none" stroke="#18211d" stroke-linecap="round" stroke-linejoin="round">
+    <path d="M58 286 C218 250 353 273 515 250 C658 230 765 248 910 232 C1105 211 1302 226 1538 197" stroke-width="5" opacity=".28"/>
+    <path d="M81 319 C266 289 395 307 567 286 C770 260 949 270 1148 246 C1298 228 1410 227 1524 213" stroke-width="2.4" opacity=".55"/>
+  </g>
+  <text x="74" y="172" fill="#18211d" font-family="Bradley Hand, Apple Chancery, Segoe Print, cursive" font-size="83" font-weight="400" letter-spacing="-1.2">
+    Good design shines equally
+  </text>
+  <text x="328" y="271" fill="#18211d" font-family="Bradley Hand, Apple Chancery, Segoe Print, cursive" font-size="83" font-weight="400" letter-spacing="-1.2">
+    across every discipline.
+  </text>
+  <g fill="#18211d" opacity=".75">
+    <circle cx="141" cy="211" r="3"/>
+    <circle cx="1270" cy="287" r="2.4"/>
+    <circle cx="1468" cy="159" r="2.8"/>
+  </g>
+  <path d="M1392 78 C1423 59 1460 58 1492 75 C1461 75 1430 82 1406 99" fill="none" stroke="#18211d" stroke-width="2.5" stroke-linecap="round" opacity=".52"/>
+</svg>

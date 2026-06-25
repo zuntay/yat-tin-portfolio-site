@@ -1,5 +1,6 @@
 ---
 import IconArrow from '../components/IconArrow.astro';
+import SiteTopBar from '../components/SiteTopBar.astro';
 import '../styles/global.css';
 interface Props { title?: string; description?: string; print?: boolean; }
 const { title = 'Yat Tin Lee — Multidisciplinary Designer', description = 'Portfolio of Yat Tin Lee, a multidisciplinary designer based between Hong Kong and Sydney.', print = false } = Astro.props;
@@ -21,9 +22,7 @@ const mobileNav = nav.slice(0, 4).concat([nav[6]]);
     <title>{title}</title>
   </head>
   <body class:list={[pageClass, { 'print-page': print }]}>
-    <header class="site-header drawer-header no-print">
-      <button class="nav-toggle" type="button" aria-label="Open navigation" aria-expanded="false" aria-controls="nav-drawer"><span class="menu-lines"><i></i><i></i></span><span class="menu-label">Menu</span><strong>YTL<span class="dot">.</span></strong><em aria-hidden="true"></em></button>
-    </header>
+    <SiteTopBar path={path} />
     <button class="nav-overlay no-print" type="button" aria-label="Close navigation" tabindex="-1"></button>
     <aside class="nav-drawer no-print" id="nav-drawer" role="dialog" aria-modal="true" aria-hidden="true" aria-label="Site navigation" inert>
       <div class="drawer-top"><a class="wordmark" href="/">YTL<span class="dot">.</span></a><button class="drawer-close" type="button" aria-label="Close navigation">Close <span>×</span></button></div>

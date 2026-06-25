@@ -100,6 +100,10 @@ Halftone is a reusable print-inspired identity texture built with CSS radial gra
 
 Use `src/components/IconArrow.astro` for UI/action arrows instead of Unicode arrow symbols. Mobile browsers may render arrow characters as emoji-style glyphs, so links, project cards, drawer items, buttons and printable controls should use SVG icons that inherit `currentColor`.
 
+## Handwritten Statement
+
+The Work page statement uses a replaceable generated dirty-ink SVG asset at `public/images/brand/work-statement-ink.svg`. Replace it later with a custom handwritten, generated, or manually drawn transparent SVG/PNG using the same filename and location. Keep the visible statement as an image and keep accessible alt text or hidden fallback text in the page markup.
+
 ## Resume components
 
 - Capability cards group design, production/delivery, tools, and languages.

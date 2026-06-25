@@ -18,47 +18,64 @@ const hasMugshot = existsSync('public/images/profile/yat-tin-lee-mugshot.jpg');
 ---
 <BaseLayout title="Work — Yat Tin Lee">
   <div class="work-sun-field">
-    <svg class="hero-rays" viewBox="0 0 1000 1000" aria-hidden="true" preserveAspectRatio="none">
-      <path class="ray ink ray-detail" d="M500 815 C445 620 318 350 65 -20" />
-      <path class="ray coral" d="M500 815 C470 590 405 305 300 -35" />
-      <path class="ray grey dotted ray-detail" d="M500 815 C492 575 478 288 470 -30" />
-      <path class="ray gold" d="M500 815 C530 575 578 275 640 -35" />
-      <path class="ray cobalt medium" d="M500 815 C548 585 655 300 755 -25" />
-      <path class="ray ink dotted ray-detail" d="M500 815 C595 610 715 330 850 -20" />
-      <path class="ray coral thin" d="M500 815 C675 670 845 470 1030 235" />
-      <path class="ray grey thin ray-detail" d="M500 815 C318 660 155 515 -30 390" />
-      <path class="ray gold dotted ray-detail" d="M500 815 C385 590 285 400 190 175" />
-      <path class="ray olive thin" d="M500 815 C620 605 710 425 795 185" />
-      <path class="ray coral medium ray-detail" d="M500 815 C355 690 210 610 35 555" />
-      <path class="ray gold medium" d="M500 815 C650 700 805 635 985 610" />
-      <path class="ray grey dotted" d="M500 815 C455 655 430 500 420 330" />
-      <path class="ray olive dotted ray-detail" d="M500 815 C555 655 595 505 610 345" />
-      <path class="ray cobalt dotted ray-detail" d="M500 815 C710 720 875 690 1030 700" />
-      <circle class="orbit coral dotted" cx="500" cy="815" r="86" />
-      <circle class="orbit grey" cx="500" cy="815" r="112" />
-      <circle class="orbit gold faint" cx="500" cy="815" r="142" />
-      <circle class="orbit cobalt dotted faint" cx="500" cy="815" r="166" />
-    </svg>
-    <header class="page-intro work-intro page-pad">
-      <div class="work-profile">
-        {hasMugshot ? <img src={mugshot} alt="Yat Tin Lee" /> : <div class="profile-avatar" aria-label="Portrait placeholder for Yat Tin Lee"><span>YTL</span></div>}
-        <div class="profile-copy"><span class="profile-label">Designer profile · Hong Kong ↔ Sydney</span><strong>Yat Tin Lee</strong><p>Multidisciplinary designer</p><small>Industrial design · Project management · UX research</small></div>
+    <header class="work-opening page-pad" id="work-opening">
+      <div class="work-opening-profile">
+        <div class="work-profile-visual">
+          {hasMugshot ? <img src={mugshot} alt="Yat Tin Lee" /> : <div class="profile-avatar" aria-label="Portrait placeholder for Yat Tin Lee"><span>YTL</span></div>}
+        </div>
+        <div class="work-opening-copy">
+          <span class="profile-label">Designer profile</span>
+          <h1>Yat Tin Lee</h1>
+          <p>Multidisciplinary designer</p>
+          <small>Based between Hong Kong and Sydney</small>
+          <small>Industrial design · Project management · UX research</small>
+        </div>
       </div>
-      <p class="eyebrow">Selected work · 2022—2026</p>
-      <h1>Things I’ve<br /><em>made & managed.</em></h1>
-      <p>A mix of physical products, digital experiences and stories. Follow a discipline through the map or wander through them all.</p>
+      <figure class="handwritten-statement">
+        <img src="/images/brand/work-statement-ink.svg" alt="Good design shines equally across every discipline." />
+        <figcaption class="sr-only">Good design shines equally across every discipline.</figcaption>
+      </figure>
+      <p class="work-opening-note">Follow a discipline through the sun map or move through all selected projects as one connected body of work.</p>
     </header>
-    <section class="tag-map-section page-pad"><WiredTagMap filters={filters} count={projects.length} /></section>
+    <section class="work-filter-section page-pad" id="work-filter" aria-labelledby="work-filter-title">
+      <svg class="hero-rays" viewBox="0 0 1000 1000" aria-hidden="true" preserveAspectRatio="none">
+        <path class="ray ink ray-detail" d="M500 815 C445 620 318 350 65 -20" />
+        <path class="ray coral" d="M500 815 C470 590 405 305 300 -35" />
+        <path class="ray grey dotted ray-detail" d="M500 815 C492 575 478 288 470 -30" />
+        <path class="ray gold" d="M500 815 C530 575 578 275 640 -35" />
+        <path class="ray cobalt medium" d="M500 815 C548 585 655 300 755 -25" />
+        <path class="ray ink dotted ray-detail" d="M500 815 C595 610 715 330 850 -20" />
+        <path class="ray coral thin" d="M500 815 C675 670 845 470 1030 235" />
+        <path class="ray grey thin ray-detail" d="M500 815 C318 660 155 515 -30 390" />
+        <path class="ray gold dotted ray-detail" d="M500 815 C385 590 285 400 190 175" />
+        <path class="ray olive thin" d="M500 815 C620 605 710 425 795 185" />
+        <path class="ray coral medium ray-detail" d="M500 815 C355 690 210 610 35 555" />
+        <path class="ray gold medium" d="M500 815 C650 700 805 635 985 610" />
+        <path class="ray grey dotted" d="M500 815 C455 655 430 500 420 330" />
+        <path class="ray olive dotted ray-detail" d="M500 815 C555 655 595 505 610 345" />
+        <path class="ray cobalt dotted ray-detail" d="M500 815 C710 720 875 690 1030 700" />
+        <circle class="orbit coral dotted" cx="500" cy="815" r="86" />
+        <circle class="orbit grey" cx="500" cy="815" r="112" />
+        <circle class="orbit gold faint" cx="500" cy="815" r="142" />
+        <circle class="orbit cobalt dotted faint" cx="500" cy="815" r="166" />
+      </svg>
+      <div class="work-filter-intro">
+        <p class="eyebrow">Selected work · 2022—2026</p>
+        <h2 id="work-filter-title">All Work is the centre.<br /><em>Disciplines radiate from it.</em></h2>
+        <p>A mix of physical products, digital experiences and stories, filtered by tags rather than folder categories.</p>
+      </div>
+      <div class="tag-map-section"><WiredTagMap filters={filters} count={projects.length} /></div>
+    </section>
   </div>
   <nav class="sticky-work-filters" aria-label="Sticky project filters" aria-hidden="true" inert>
     <div class="sticky-filter-inner">
-      <button class="sticky-filter-core active" data-filter="all" data-label="All Work">All Work</button>
-      <div class="sticky-filter-tags">
+      <div class="sticky-filter-tags" data-tag-track>
         {filters.map((filter) => <button data-filter={filter.value} data-label={filter.label}>{filter.label}</button>)}
       </div>
+      <span class="tag-scroll-progress" aria-hidden="true"><i></i></span>
     </div>
   </nav>
-  <section class="work-browser page-pad">
+  <section class="work-browser page-pad" id="portfolio-wall">
     <div class="portfolio-wall-head"><p class="eyebrow">Portfolio wall</p><p class="filter-status" aria-live="polite">Showing all {projects.length} projects</p></div>
     <div class="project-grid work-grid">{projects.map((project, index) => <ProjectCard project={project} index={index} />)}</div>
   </section>
@@ -66,22 +83,95 @@ const hasMugshot = existsSync('public/images/profile/yat-tin-lee-mugshot.jpg');
     const buttons = document.querySelectorAll<HTMLButtonElement>('[data-filter]');
     const cards = document.querySelectorAll('[data-tags]');
     const status = document.querySelector('.filter-status');
-    const mainFilter = document.querySelector('.sun-filter');
+    const filterSection = document.querySelector<HTMLElement>('#work-filter');
+    const mainFilter = document.querySelector<HTMLElement>('.sun-filter');
     const stickyFilter = document.querySelector<HTMLElement>('.sticky-work-filters');
-    buttons.forEach((button) => button.addEventListener('click', () => {
-      const filter = button.getAttribute('data-filter'); const label = button.getAttribute('data-label') || filter; let visible = 0;
+    const portfolioWall = document.querySelector<HTMLElement>('#portfolio-wall');
+    const topbarCore = document.querySelector<HTMLButtonElement>('[data-work-core]');
+    const tagTrack = document.querySelector<HTMLElement>('[data-tag-track]');
+    const tagProgress = document.querySelector<HTMLElement>('.tag-scroll-progress i');
+    const reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+    let snapping = false;
+    let tagNudged = false;
+    let tagInteracted = false;
+
+    const updateTagProgress = () => {
+      if (!tagTrack || !tagProgress) return;
+      const max = tagTrack.scrollWidth - tagTrack.clientWidth;
+      const progress = max > 0 ? tagTrack.scrollLeft / max : 0;
+      tagProgress.style.transform = `scaleX(${Math.max(.08, progress)})`;
+    };
+
+    const scrollToElement = (element?: Element | null) => {
+      if (!element) return;
+      snapping = true;
+      const targetTop = window.scrollY + element.getBoundingClientRect().top - 128;
+      window.scrollTo({ top: Math.max(0, targetTop), behavior: reduceMotion ? 'auto' : 'smooth' });
+      window.setTimeout(() => { snapping = false; }, reduceMotion ? 80 : 760);
+    };
+
+    const setStickyVisible = (show: boolean) => {
+      if (!stickyFilter) return;
+      stickyFilter.classList.toggle('is-visible', show);
+      stickyFilter.setAttribute('aria-hidden', String(!show));
+      stickyFilter.toggleAttribute('inert', !show);
+      if (show && !tagNudged && !tagInteracted && !reduceMotion && tagTrack && tagTrack.scrollWidth > tagTrack.clientWidth + 8) {
+        tagNudged = true;
+        window.setTimeout(() => {
+          tagTrack.scrollLeft = 42;
+          updateTagProgress();
+          window.setTimeout(() => {
+            tagTrack.scrollLeft = 18;
+            updateTagProgress();
+          }, 520);
+        }, 260);
+      }
+    };
+
+    const applyFilter = (filter: string | null, label?: string | null) => {
+      let visible = 0;
       buttons.forEach((item) => item.classList.toggle('active', item.getAttribute('data-filter') === filter));
       cards.forEach((card) => { const show = filter === 'all' || card.getAttribute('data-tags')?.split('|').includes(filter || ''); card.toggleAttribute('hidden', !show); if (show) visible++; });
       if (status) status.textContent = filter === 'all' ? `Showing all ${visible} projects` : `Showing ${visible} project${visible === 1 ? '' : 's'} tagged “${label}”`;
+    };
+
+    buttons.forEach((button) => button.addEventListener('click', () => {
+      const filter = button.getAttribute('data-filter');
+      const label = button.getAttribute('data-label') || filter;
+      applyFilter(filter, label);
+      setStickyVisible(true);
+      scrollToElement(portfolioWall);
     }));
+
+    topbarCore?.addEventListener('click', () => {
+      applyFilter('all', 'All Work');
+      setStickyVisible(true);
+      scrollToElement(portfolioWall);
+    });
+
     if (mainFilter && stickyFilter) {
       const observer = new IntersectionObserver(([entry]) => {
-        const show = !entry.isIntersecting && entry.boundingClientRect.bottom < 96;
-        stickyFilter.classList.toggle('is-visible', show);
-        stickyFilter.setAttribute('aria-hidden', String(!show));
-        stickyFilter.toggleAttribute('inert', !show);
+        const show = !entry.isIntersecting && entry.boundingClientRect.bottom < 110;
+        setStickyVisible(show);
       }, { rootMargin: '-72px 0px 0px 0px' });
       observer.observe(mainFilter);
     }
+
+    tagTrack?.addEventListener('scroll', updateTagProgress);
+    ['pointerdown', 'wheel', 'touchstart', 'keydown'].forEach((eventName) => tagTrack?.addEventListener(eventName, () => { tagInteracted = true; }, { passive: true }));
+
+    window.addEventListener('wheel', (event) => {
+      if (reduceMotion || snapping || !filterSection || !portfolioWall) return;
+      const y = window.scrollY;
+      const filterTop = filterSection.offsetTop;
+      const wallTop = portfolioWall.offsetTop;
+      if (event.deltaY > 12 && y < Math.min(220, filterTop - 80)) {
+        event.preventDefault();
+        scrollToElement(filterSection);
+      } else if (event.deltaY < -12 && y > wallTop - 190 && y < wallTop + 210) {
+        event.preventDefault();
+        scrollToElement(filterSection);
+      }
+    }, { passive: false });
   </script>
 </BaseLayout>
