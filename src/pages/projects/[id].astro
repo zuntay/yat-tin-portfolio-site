@@ -22,7 +22,6 @@ const sectionsWithIds = data.sections.map((section, index) => {
   const label = sectionLabel(section);
   return { ...section, navId: `case-${slugify(label)}-${index + 1}`, navLabel: label };
 });
-const sectionNav = sectionsWithIds.filter((section) => section.navId && section.navLabel);
 const sectionVisuals = data.sections.flatMap((section) => {
   if (section.type === 'split' && section.image) return [{ src: section.image, alt: section.imageAlt || '', caption: section.caption, label: section.eyebrow }];
   if (section.type === 'gallery' && section.images) return section.images.map((image) => ({ ...image, label: section.eyebrow }));
@@ -31,24 +30,16 @@ const sectionVisuals = data.sections.flatMap((section) => {
 ---
 <BaseLayout title={`${data.title} — Yat Tin Lee`} description={data.summary}>
   <article class="project-detail">
+    <div class:list={['project-hero-image', { placeholder: data.placeholder }]}><img src={data.hero} alt={data.placeholder ? '' : `${data.title} hero`} />{data.placeholder && <div><span>Project preview</span><strong>Imagery coming soon</strong></div>}</div>
     <header class="project-hero page-pad">
       <div class="project-title"><p class="eyebrow">{data.projectType}</p><h1>{data.title}</h1><p>{data.summary}</p></div>
       <div class="project-meta"><div><span>Year</span><p>{data.year}</p></div><div><span>Role</span><p>{data.role}</p></div><div><span>Status</span><p>{data.status}</p></div></div>
       <ul class="tag-list">{data.tags.map((tag) => <li>{tag}</li>)}</ul>
       {data.badge && <div class="badge-row"><span>Award / recognition</span>{data.badge.href ? <a href={data.badge.href}>{data.badge.label} <IconArrow /></a> : <p>{data.badge.label}</p>}</div>}
       {data.companyLogo && <img class="company-logo" src={data.companyLogo.src} alt={data.companyLogo.alt} />}
+      {data.externalLinks.length > 0 && <div class="external-links project-intro-links">{data.externalLinks.map((link) => <a href={link.href}>{link.label} <IconArrow /></a>)}</div>}
     </header>
-    <div class:list={['project-hero-image', { placeholder: data.placeholder }]}><img src={data.hero} alt={data.placeholder ? '' : `${data.title} hero`} />{data.placeholder && <div><span>Project preview</span><strong>Imagery coming soon</strong></div>}</div>
     {data.placeholder && <aside class="placeholder-notice page-pad"><strong>This case study is in progress.</strong><p>The structure is ready for confirmed content. No client, process or outcome details have been assumed.</p></aside>}
-    {sectionNav.length > 0 && <nav class="project-section-nav no-print" aria-label="Project section navigation" aria-hidden="true" inert>
-      <div class="project-section-nav-inner">
-        <a href="#project-content">Story</a>
-        {sectionNav.map((section) => <a href={`#${section.navId}`}>{section.navLabel}</a>)}
-      </div>
-    </nav>}
-    <nav class="mobile-project-switch" aria-label="Jump between project images and story">
-      <a href="#project-images">Images</a><a href="#project-content">Story</a>
-    </nav>
     <div class:list={['case-study-board', 'page-pad', { 'placeholder-board': data.placeholder }]}> 
       <aside class="visual-board" id="project-images" aria-label={`${data.title} visual story`}>
         <div class="visual-board-label"><span>Visual story</span><span>{String(sectionVisuals.length).padStart(2, '0')} frames</span></div>
@@ -56,38 +47,6 @@ const sectionVisuals = data.sections.flatMap((section) => {
       </aside>
       <div class="reading-column" id="project-content"><div class="reading-label"><span>Case study</span><span>Scroll to read <IconArrow direction="down" /></span></div><ProjectSections sections={sectionsWithIds} /></div>
     </div>
-    {data.externalLinks.length > 0 && <div class="external-links page-pad">{data.externalLinks.map((link) => <a href={link.href}>{link.label} <IconArrow /></a>)}</div>}
     <nav class="next-project page-pad"><p>Continue exploring</p><a href="/work/">All projects <IconArrow /></a></nav>
   </article>
-  <script>
-    const projectNav = document.querySelector<HTMLElement>('.project-section-nav');
-    const projectContent = document.querySelector<HTMLElement>('.case-study-board');
-    const projectReduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-    if (projectNav && projectContent) {
-      const setProjectNav = (show: boolean) => {
-        projectNav.classList.toggle('is-visible', show);
-        projectNav.setAttribute('aria-hidden', String(!show));
-        projectNav.toggleAttribute('inert', !show);
-      };
-      let ticking = false;
-      const updateProjectNav = () => {
-        const rect = projectContent.getBoundingClientRect();
-        setProjectNav(rect.top < 110 && rect.bottom > 220);
-        ticking = false;
-      };
-      updateProjectNav();
-      window.addEventListener('scroll', () => {
-        if (ticking) return;
-        ticking = true;
-        requestAnimationFrame(updateProjectNav);
-      }, { passive: true });
-      projectNav.querySelectorAll('a[href^="#"]').forEach((link) => link.addEventListener('click', (event) => {
-        const target = document.querySelector((link as HTMLAnchorElement).hash);
-        if (!target) return;
-        event.preventDefault();
-        const targetTop = window.scrollY + target.getBoundingClientRect().top - 138;
-        window.scrollTo({ top: Math.max(0, targetTop), behavior: projectReduceMotion ? 'auto' : 'smooth' });
-      }));
-    }
-  </script>
 </BaseLayout>

@@ -10,7 +10,6 @@ const nav = [
   ['Work', '/work/'], ['About', '/about/'], ['Resume', '/resume/'], ['Links', '/links/'],
   ['Style guide', '/style-guide/'], ['Printable portfolio', '/pdf/'], ['Contact / Let’s talk', '/contact/'],
 ];
-const mobileNav = nav.slice(0, 4).concat([nav[6]]);
 ---
 <!doctype html>
 <html lang="en">
@@ -31,7 +30,6 @@ const mobileNav = nav.slice(0, 4).concat([nav[6]]);
       </nav>
       <div class="drawer-note"><span>Hong Kong ↔ Sydney</span><p>Multidisciplinary design across products, experiences and delivery.</p></div>
     </aside>
-    <nav class="mobile-bottom-nav no-print" aria-label="Mobile navigation">{mobileNav.map(([label, href]) => <a class:list={{ active: path.startsWith(href) }} href={href}>{label.split(' / ')[0]}</a>)}</nav>
     <main><slot /></main>
     <footer class="site-footer no-print">
       <div><a class="wordmark" href="/">YTL<span class="dot">.</span></a><p>Designing useful things, thoughtfully.</p><p>Based between Hong Kong and Sydney.</p></div>
